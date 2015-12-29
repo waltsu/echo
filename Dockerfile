@@ -1,4 +1,7 @@
-FROM waltsu/playground_base
+FROM ubuntu:14.04
+
+RUN apt-get update && apt-get install -y python-setuptools
+RUN easy_install pip
 
 ADD requirements.txt /src/requirements.txt
 RUN cd /src; pip install -r requirements.txt
