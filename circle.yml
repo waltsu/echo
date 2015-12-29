@@ -1,0 +1,12 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+    - docker build -t waltsu/echo .
+
+test:
+  override:
+    - docker run waltsu/echo nosetests
