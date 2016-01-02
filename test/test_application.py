@@ -15,7 +15,7 @@ class ApplicationTestCase(unittest.TestCase):
   def test_echoing(self):
     response = self.app.get('/foo')
     self.assertEqual(response.status_code, 200)
-    self.assertEqual(response.get_data(), '{"foo": "foo"}')
+    self.assertEqual(response.get_data(), '{"echo": "foo"}')
 
 if __name__ == '__main__':
   unittest.main()
