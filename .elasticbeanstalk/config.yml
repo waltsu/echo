@@ -7,5 +7,4 @@ global:
   default_ec2_keyname: aws-eb
   default_platform: Docker 1.7.1
   default_region: eu-west-1
-  profile: eb-cli
   sc: git
