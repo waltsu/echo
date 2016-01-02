@@ -4,9 +4,20 @@ machine:
 
 dependencies:
   override:
+    - pip install awsebcli
     - docker info
     - docker build -t waltsu/echo .
 
 test:
   override:
     - docker run waltsu/echo nosetests
+
+deployment:
+  production:
+    branch: production
+    commands:
+      - ./deploy.sh echo-prod
+  staging:
+    branch: master
+    commands:
+      - ./deploy.sh echo-dev
