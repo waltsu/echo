@@ -1,9 +1,19 @@
 # -*- coding: utf-8 -*-
 
+import os
+
+import logging
+from log_handler import MakeFileHandler
+
 from flask import Flask, Response
 import json
 
 app = Flask(__name__)
+
+handler = MakeFileHandler('application.log', maxBytes=10000, backupCount=1)
+handler.setLevel(logging.DEBUG)
+logger = logging.getLogger('werkzeug')
+logger.addHandler(handler)
 
 @app.route("/<resource>", methods=['GET'])
 def echo(resource):
