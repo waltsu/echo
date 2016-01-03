@@ -1,7 +1,4 @@
-FROM ubuntu:14.04
-
-RUN apt-get update && apt-get install -y python-setuptools
-RUN easy_install pip
+FROM waltsu/base
 
 ADD requirements.txt /src/requirements.txt
 
